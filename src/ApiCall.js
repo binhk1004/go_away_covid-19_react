@@ -1,13 +1,15 @@
 import axios from "axios";
 
-const ApiCall = async () => {
+function ApiCall(){
 
-    const url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson';
+    const url = '/openapi/service/rest/Covid19/getCovid19SidoInfStateJson';
     const ServiceKey = 'jFJq%2B%2BJgU2Mc8PrE5BxRZetsGiBrM%2BXDSku%2FUFCuzZ7j8FrslWnJ%2BR2xa7QbRStVG9HfSDU%2BmBQz3SCSfZmfXw%3D%3D';
+    const startCreateDt = '20200410';
+    const endCreateDt = '20210928';
 
-    const result = await axios.get(url+'?'+ServiceKey);
+    const result = axios.get(url+'?'+ServiceKey+'&'+startCreateDt+'&'+endCreateDt);
 
-    console.log(result.data)
+    setTimeout(console.log(result), 5000)
     return(
         <div>테스트 중 입니다.</div>
     )
