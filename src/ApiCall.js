@@ -4,26 +4,30 @@ function ApiCall(){
 
     const url = '/openapi/service/rest/Covid19/getCovid19SidoInfStateJson';
     const ServiceKey = 'jFJq%2B%2BJgU2Mc8PrE5BxRZetsGiBrM%2BXDSku%2FUFCuzZ7j8FrslWnJ%2BR2xa7QbRStVG9HfSDU%2BmBQz3SCSfZmfXw%3D%3D';
-    const startCreateDt = '20200410';
-    const endCreateDt = '20211001';
 
-    const result = axios.get(url+'?ServiceKey='+ServiceKey+'&startCreateDt='+startCreateDt+'&endCreateDt='+endCreateDt);
-
-    function getResult(){
-        return new Promise((resolve, reject)=>{
-            resolve(result)
+    const result = axios.get(url+'?ServiceKey='+ServiceKey);
+    
+    function api(){
+        function getResult(){
+            return new Promise((resolve, reject)=>{
+                if (result){
+                    resolve(result)
+                }
+                reject("응답이 거절 되었습니다.")
+            })
+        };
+    
+        getResult().then(function(showData){
+            const test = showData.data.response.body.items.item[1].gubun
+            // console.log(test)
         })
-    };
-
-    getResult().then(function(showData){
-        console.log(showData.data.response.body.items)
-    })
-
+        return test
+    }
+    console.log(api())
 
     return(
-        <div>테스트 중 입니다.</div>
+        <div>{api()}</div>
     )
 }
-
 
 export default ApiCall;

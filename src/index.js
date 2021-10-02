@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import ApiCall from './ApiCall';
+import Test from './Test'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <ApiCall />
+    {/* <Test /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
