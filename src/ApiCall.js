@@ -7,7 +7,6 @@ function ApiCall(){
 
     const result = axios.get(url+'?ServiceKey='+ServiceKey);
     
-    function api(){
         function getResult(){
             return new Promise((resolve, reject)=>{
                 if (result){
@@ -19,14 +18,11 @@ function ApiCall(){
     
         getResult().then(function(showData){
             const test = showData.data.response.body.items.item[1].gubun
-            // console.log(test)
+            console.log(test)
         })
-        return test
-    }
-    console.log(api())
 
     return(
-        <div>{api()}</div>
+        <div></div>
     )
 }
 
