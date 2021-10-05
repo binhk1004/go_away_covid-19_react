@@ -8,8 +8,8 @@ import Test from './Test'
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    {/* <ApiCall /> */}
-    <Test />
+    <ApiCall />
+    {/* <Test /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
