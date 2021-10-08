@@ -2,10 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function ApiCall() {
-  const [data, setDate] = useState({
-    gubun : "",
-    incDec : ""
-  });
+  const [data, setData] = useState("");
   const url = "/openapi/service/rest/Covid19/getCovid19SidoInfStateJson";
   const ServiceKey =
     "jFJq%2B%2BJgU2Mc8PrE5BxRZetsGiBrM%2BXDSku%2FUFCuzZ7j8FrslWnJ%2BR2xa7QbRStVG9HfSDU%2BmBQz3SCSfZmfXw%3D%3D";
@@ -23,29 +20,34 @@ function ApiCall() {
     }
 
     getResult().then(function (showData) {
-      const requestDate = showData.data.response.body.items.item
-      const testItems = new Array();
-      const testItems2 =  new Array();
+      const requestDate = showData.data.response.body.items.item;
 
-      for (let i = 0; i < requestDate.length; i++){
-          testItems.push(requestDate[i].gubun)
-          testItems2.push(requestDate[i].incDec)
-        }
-        // console.log(testItems)
-        // console.log(testItems2)
-        setDate(testItems, testItems2)
-        console.log(data.incDec)
+      const gubunData = new Array();
+      const incDecData = new Array();
+      const finalItem = new Object();
+
+      for (let i = 0; i < requestDate.length; i++) {
+        gubunData.push(requestDate[i].gubun);
+        incDecData.push(requestDate[i].incDec);
+      }
+      finalItem["gubun"] = gubunData;
+      finalItem["incDec"] = incDecData; 
+      setData(finalItem);
+      console.log(data)
     });
-    getResult()
-  },[]);
+    getResult();
+  }, []);
+  console.log()
 
-  // const pleaseData = data.gubun.map((data) => (<li>{data}</li>))
+  const gubun = data && data.gubun.map((data) => <div>{data}</div>);
+  const incDec = data &&data.incDec.map((data) => <div>{data}</div>);
+
   return (
-    
     <div>
-      {/* {pleaseData} */}
-    </div> 
-  )
+      {/* {gubun}
+      {incDec} */}
+    </div>
+  );
 }
 
 export default ApiCall;
