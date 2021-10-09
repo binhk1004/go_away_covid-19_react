@@ -1,8 +1,9 @@
 import axios from "axios";
+import Map from './Map'
 import { useEffect, useState } from "react";
 
 function ApiCall() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState('');
   const url = "/openapi/service/rest/Covid19/getCovid19SidoInfStateJson";
   const ServiceKey =
     "jFJq%2B%2BJgU2Mc8PrE5BxRZetsGiBrM%2BXDSku%2FUFCuzZ7j8FrslWnJ%2BR2xa7QbRStVG9HfSDU%2BmBQz3SCSfZmfXw%3D%3D";
@@ -33,18 +34,15 @@ function ApiCall() {
       finalItem["gubun"] = gubunData;
       finalItem["incDec"] = incDecData; 
       setData(finalItem);
-      // console.log(data.gubun[0])
     });
     getResult();
   }, []);
 
-  const gubun = data && data.gubun.map((data) => <div>{data}</div>);
-  const incDec = data &&data.incDec.map((data) => <div>{data}</div>);
+  const covid = data;
 
   return (
     <div>
-      {/* {gubun}
-      {incDec} */}
+      <Map apiresult={covid}/>
     </div>
   );
 }
