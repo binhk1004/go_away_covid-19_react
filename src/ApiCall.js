@@ -33,11 +33,10 @@ function ApiCall() {
       finalItem["gubun"] = gubunData;
       finalItem["incDec"] = incDecData; 
       setData(finalItem);
-      console.log(data)
+      // console.log(data.gubun[0])
     });
     getResult();
   }, []);
-  console.log()
 
   const gubun = data && data.gubun.map((data) => <div>{data}</div>);
   const incDec = data &&data.incDec.map((data) => <div>{data}</div>);
