@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import ApiCall from './ApiCall';
-import Map from './Map'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <ApiCall />
-    <Map />
   </React.StrictMode>,
   document.getElementById('root')
 );

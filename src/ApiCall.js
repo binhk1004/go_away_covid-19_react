@@ -1,5 +1,5 @@
 import axios from "axios";
-import Map from './Map'
+import Map from "./Map"
 import { useEffect, useState } from "react";
 
 function ApiCall() {
@@ -11,7 +11,7 @@ function ApiCall() {
   const result = axios.get(url + "?ServiceKey=" + ServiceKey);
 
   useEffect(() => {
-    function getResult() {
+    async function getResult() {
       return new Promise((resolve, reject) => {
         if (result) {
           resolve(result);
@@ -20,29 +20,29 @@ function ApiCall() {
       });
     }
 
-    getResult().then(function (showData) {
+     getResult().then(function (showData) {
       const requestDate = showData.data.response.body.items.item;
 
-      const gubunData = new Array();
-      const incDecData = new Array();
-      const finalItem = new Object();
+      const gubunData = [];
+      const incDecData = [];
+      const finalData = {};
 
       for (let i = 0; i < requestDate.length; i++) {
         gubunData.push(requestDate[i].gubun);
         incDecData.push(requestDate[i].incDec);
       }
-      finalItem["gubun"] = gubunData;
-      finalItem["incDec"] = incDecData; 
-      setData(finalItem);
+      finalData["gubun"] = gubunData;
+      finalData["incDec"] = incDecData; 
+      setData(finalData);
     });
     getResult();
-  }, []);
+  },[]);
 
   const covid = data;
 
   return (
     <div>
-      <Map apiresult={covid}/>
+       <Map apiresult={covid}/> 
     </div>
   );
 }
