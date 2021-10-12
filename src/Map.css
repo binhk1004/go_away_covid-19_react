@@ -3,6 +3,10 @@ svg{
     width: 1000px;
 }
 
+path{
+    fill: white;
+}
+
 path:hover{
     fill: red;
 }
