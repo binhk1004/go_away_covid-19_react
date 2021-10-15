@@ -1,47 +1,44 @@
+import { useState } from "react";
+import ResultTable from './ResultTable'
 import "./Map.css";
 import $ from "jquery";
 
 export default function Map(covid) {
+  const [show, setShow] = useState(false);
   const gubunData = covid.apiresult.gubun; //행정구역 구분
   const incDecData = covid.apiresult.incDec; //전일대비 증감수
   const totalData = covid.apiresult.total; //확진자 수
-
-  if (gubunData !== "undefined" && gubunData !== null) {
-  }
-  if (incDecData !== "undefined" && incDecData !== null) {
-  }
-  if (totalData !== "undefined" && totalData !== null) {
-  }
-  // $("path").on("click", function() {
-  //   var resultId = $(this)?.attr("id");
-  //   console.log(resultId)
-  // })
 
   const mouseClick = () => {
     $("path")
       .off()
       .on("click", function () {
         var resultId = $(this)?.attr("id");
-
-        for (let i = 0; i <= gubunData.length; i++) {
-          if (gubunData[i] === resultId) {
-            alert(
-              "장소 : " +
-                gubunData[i] +
-                "\n" +
-                "전일대비 증가수 : " +
-                incDecData[i] +
-                "\n" +
-                "누적확진자 수 : " +
-                totalData[i]
-            );
+        if (gubunData !== "undefined" && gubunData !== null) {
+          for (let i = 0; i <= gubunData.length; i++) {
+            if (gubunData[i] === resultId) {
+              alert(
+                "장소 : " +
+                  gubunData[i] +
+                  "\n" +
+                  "전일대비 증가수 : " +
+                  incDecData[i] +
+                  "\n" +
+                  "누적확진자 수 : " +
+                  totalData[i]
+              );
+            }
+            setShow(true);
           }
         }
       });
   };
 
+  const testData = covid
+
   return (
     <div>
+       {show && <ResultTable apiresult={testData}/>}
       <svg xmlns="img/south-korea.svg" viewBox="0 0 524 631">
         <path
           onClick={mouseClick}
