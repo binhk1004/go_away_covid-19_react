@@ -1,6 +1,10 @@
 import "./ResultTable.css";
 
-export default function ResultTable() {
+export default function ResultTable(tableDataSet) {
+
+  if(tableDataSet !== []){
+    console.log(tableDataSet.data)
+  }
 
   return (
     <table>
@@ -10,9 +14,9 @@ export default function ResultTable() {
           <td>누적 확진자 수</td>
         </tr>
         <tr>
-          <td>테스트</td>
-          <td>테스트</td>
-          <td>테스트</td>
+          <td>{tableDataSet.data[0]}</td>
+          <td>{tableDataSet.data[1]}</td>
+          <td>{tableDataSet.data[2]}</td>
         </tr>
     </table>
   );
