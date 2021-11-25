@@ -1,6 +1,5 @@
 {
   "name": "go_away_covid-19_react",
-  "homepage": "http://binhk1004.github.io/go_away_covid-19_react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,6 +43,7 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
+    ],
+    "homepage": "http://binhk1004.github.io/go_away_covid-19_react"
   }
 }
