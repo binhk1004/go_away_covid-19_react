@@ -40,7 +40,7 @@ function ApiCall() {
       setData(finalData);
     })
       getResult();
-  },[]);
+  },[result]);
 
   const covid = data;
 
