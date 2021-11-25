@@ -3,7 +3,7 @@ import "./ResultTable.css";
 export default function ResultTable(tableDataSet) {
 
   if(tableDataSet !== []){
-    console.log(tableDataSet.data)
+    
   }
 
   return (

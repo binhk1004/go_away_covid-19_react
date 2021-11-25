@@ -6,6 +6,7 @@ import ResultTable from "./ResultTable";
 export default function Map(covid) {
   const [tableData, rowData] = useState('')
   const [show, setShow] = useState(false);
+
   const gubunData = covid.apiresult.gubun; //행정구역 구분
   const incDecData = covid.apiresult.incDec; //전일대비 증감수
   const totalData = covid.apiresult.total; //확진자 수
@@ -16,6 +17,8 @@ export default function Map(covid) {
       .off()
       .on("click", function () {
         var resultId = $(this)?.attr("id");
+        // console.log(gubunData);
+        // console.log(incDecData);
         if (gubunData !== "undefined" && gubunData !== null) {
           for (let i = 0; i <= gubunData.length; i++) {
             if (gubunData[i] === resultId) {
