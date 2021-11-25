@@ -45,6 +45,7 @@ export default function Map(covid) {
   const tableDataSet = tableData;
 
   return (
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <div>
       <svg xmlns="img/south-korea.svg" viewBox="0 0 524 631">
         <path
@@ -152,5 +153,6 @@ export default function Map(covid) {
       </svg>
       {show && <ResultTable data={tableDataSet}/>}
     </div>
+    </meta>
   );
 }
