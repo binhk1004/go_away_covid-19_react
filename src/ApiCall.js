@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 function ApiCall() {
   const [data, setData] = useState('');
-  const url = "getCovid19SidoInfStateJson";
+  const url = "/openapi/service/rest/Covid19getCovid19SidoInfStateJson";
   const ServiceKey = "jFJq%2B%2BJgU2Mc8PrE5BxRZetsGiBrM%2BXDSku%2FUFCuzZ7j8FrslWnJ%2BR2xa7QbRStVG9HfSDU%2BmBQz3SCSfZmfXw%3D%3D";
 
   const result = axios.get(url + "?ServiceKey=" + ServiceKey);
