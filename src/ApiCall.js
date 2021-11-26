@@ -22,6 +22,8 @@ function ApiCall() {
     
      getResult().then(function (showData) {
 
+      console.log(showData)
+
       const requestDate = showData.data.response.body.items.item;
       
       const gubunData = [];
@@ -40,7 +42,7 @@ function ApiCall() {
       setData(finalData);
     })
       getResult();
-  },[result]);
+  },[]);
 
   const covid = data;
 
