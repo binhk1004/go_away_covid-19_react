@@ -22,7 +22,7 @@ function ApiCall() {
     
      getResult().then(function (showData) {
 
-      console.log(showData)
+      console.log(showData.data.response)
 
       const requestDate = showData.data.response.body.items.item;
       
