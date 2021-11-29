@@ -7,10 +7,11 @@ function ApiCall() {
 
   useEffect(() => {
 
-    const url = "/openapi/service/rest/Covid19getCovid19SidoInfStateJson";
-    const ServiceKey = "jFJq%2B%2BJgU2Mc8PrE5BxRZetsGiBrM%2BXDSku%2FUFCuzZ7j8FrslWnJ%2BR2xa7QbRStVG9HfSDU%2BmBQz3SCSfZmfXw%3D%3D";
+    const url = "http://openapi.data.go.kr/openapi/service/rest/Covid19getCovid19SidoInfStateJson";
+    const ServiceKey = "jFJq++JgU2Mc8PrE5BxRZetsGiBrM+XDSku/UFCuzZ7j8FrslWnJ+R2xa7QbRStVG9HfSDU+mBQz3SCSfZmfXw==";
 
-    const result = axios.get('/api'+url + "?ServiceKey=" + ServiceKey);
+    const result = axios.get(url + "?ServiceKey=" + ServiceKey);
+
     function getResult() {
       return new Promise((resolve, reject) => {
         if (result) {
@@ -22,8 +23,6 @@ function ApiCall() {
 
     
      getResult().then(function (showData) {
-
-      console.log(showData.data)
 
       const requestDate = showData.data.response.body.items.item;
       

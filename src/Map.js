@@ -17,8 +17,6 @@ export default function Map(covid) {
       .off()
       .on("click", function () {
         var resultId = $(this)?.attr("id");
-        // console.log(gubunData);
-        // console.log(incDecData);
         if (gubunData !== "undefined" && gubunData !== null) {
           for (let i = 0; i <= gubunData.length; i++) {
             if (gubunData[i] === resultId) {
