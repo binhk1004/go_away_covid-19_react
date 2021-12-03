@@ -7,7 +7,7 @@ function ApiCall() {
 
   useEffect(() => {
 
-    const url = "http://openapi.data.go.kr/openapi/service/rest/Covid19getCovid19SidoInfStateJson";
+    const url = "openapi/service/rest/Covid19getCovid19SidoInfStateJson";
     const ServiceKey = "jFJq++JgU2Mc8PrE5BxRZetsGiBrM+XDSku/UFCuzZ7j8FrslWnJ+R2xa7QbRStVG9HfSDU+mBQz3SCSfZmfXw==";
 
     const result = axios.get(url + "?ServiceKey=" + ServiceKey);
